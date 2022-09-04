@@ -1,0 +1,27 @@
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+deployments
+frp_0.44.0_windows_amd64
+.next
+frp
+
+#Hardhat files
+cache
+artifacts
+
+
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts
+

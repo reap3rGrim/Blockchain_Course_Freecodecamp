@@ -1,0 +1,4 @@
+- **Different packages:** `yarn add --dev @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers`
+- Check out the [solidity style guide](https://docs.soliditylang.org/en/v0.8.16/style-guide.html) and NATSPEC
+- Contract deployed at 0x7512a7Aeb5CD984488910ABF00841e346E445E6B
+- Check out testing with chai and hardhat chai matchers 
