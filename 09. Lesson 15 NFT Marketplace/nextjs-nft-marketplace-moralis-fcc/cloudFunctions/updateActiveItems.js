@@ -1,20 +1,25 @@
 Moralis.Cloud.afterSave("ItemListed", async (request) => {
     const confirmed = request.object.get("confirmed")
     const logger = Moralis.Cloud.getLogger()
+
     logger.info("Looking for confirmed TX...")
+
     if (confirmed) {
         logger.info("Found item!")
         const ActiveItem = Moralis.Object.extend("ActiveItem")
 
         // In case of listing update, search for already listed ActiveItem and delete
         const query = new Moralis.Query(ActiveItem)
+
         query.equalTo("nftAddress", request.object.get("nftAddress"))
         query.equalTo("tokenId", request.object.get("tokenId"))
         query.equalTo("marketplaceAddress", request.object.get("address"))
         query.equalTo("seller", request.object.get("seller"))
         logger.info(`Marketplace | Query: ${query}`)
+
         const alreadyListedItem = await query.first()
-        console.log(`alreadyListedItem ${JSON.stringify(alreadyListedItem)}`);
+        console.log(`alreadyListedItem ${JSON.stringify(alreadyListedItem)}`)
+
         if (alreadyListedItem) {
             logger.info(`Deleting ${alreadyListedItem.id}`)
             await alreadyListedItem.destroy()
@@ -41,6 +46,7 @@ Moralis.Cloud.afterSave("ItemListed", async (request) => {
         )
         logger.info("Saving...")
         await activeItem.save()
+        logger.info("Saved Successfully!")
     }
 })
 
@@ -51,27 +57,29 @@ Moralis.Cloud.afterSave("ItemCanceled", async (request) => {
         const logger = Moralis.Cloud.getLogger()
         const ActiveItem = Moralis.Object.extend("ActiveItem")
         const query = new Moralis.Query(ActiveItem)
+
         query.equalTo("marketplaceAddress", request.object.get("address"))
         query.equalTo("nftAddress", request.object.get("nftAddress"))
         query.equalTo("tokenId", request.object.get("tokenId"))
+
         logger.info(`Marketplace | Query: ${query}`)
         const canceledItem = await query.first()
         logger.info(`Marketplace | CanceledItem: ${JSON.stringify(canceledItem)}`)
-        if (canceledItem) {
-            logger.info(`Deleting ${canceledItem.id}`)
-            await canceledItem.destroy()
-            logger.info(
-                `Deleted item with tokenId ${request.object.get(
-                    "tokenId"
-                )} at address ${request.object.get("address")} since it was canceled. `
-            )
-        } else {
-            logger.info(
-                `No item canceled with address: ${request.object.get(
-                    "address"
-                )} and tokenId: ${request.object.get("tokenId")} found.`
-            )
-        }
+        // if (canceledItem) {
+        logger.info(`Deleting ${canceledItem.id}`)
+        await canceledItem.destroy()
+        logger.info(
+            `Deleted item with tokenId ${request.object.get(
+                "tokenId"
+            )} at address ${request.object.get("address")} since it was canceled. `
+        )
+        // } else {
+        // logger.info(
+        // `No item canceled with address: ${request.object.get(
+        // "address"
+        // )} and tokenId: ${request.object.get("tokenId")} found.`
+        // )
+        // }
     }
 })
 

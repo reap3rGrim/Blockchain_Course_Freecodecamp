@@ -12,7 +12,7 @@ const masterKey = process.env.masterKey
 
 async function main() {
     await Moralis.start({ serverUrl, appId, masterKey })
-    console.log(`Working with contrat address ${contractAddress}`)
+    console.log(`Working with contract address ${contractAddress}`)
 
     let itemListedOptions = {
         // Moralis understands a local chain is 1337
