@@ -40,16 +40,16 @@ export class ItemBought__Params {
   }
 }
 
-export class ItemCanceled extends ethereum.Event {
-  get params(): ItemCanceled__Params {
-    return new ItemCanceled__Params(this);
+export class ItemCancelled extends ethereum.Event {
+  get params(): ItemCancelled__Params {
+    return new ItemCancelled__Params(this);
   }
 }
 
-export class ItemCanceled__Params {
-  _event: ItemCanceled;
+export class ItemCancelled__Params {
+  _event: ItemCancelled;
 
-  constructor(event: ItemCanceled) {
+  constructor(event: ItemCancelled) {
     this._event = event;
   }
 

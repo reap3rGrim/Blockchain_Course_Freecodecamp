@@ -15,11 +15,6 @@ export class ActiveItem extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("buyer", Value.fromBytes(Bytes.empty()));
-    this.set("seller", Value.fromBytes(Bytes.empty()));
-    this.set("nftAddress", Value.fromBytes(Bytes.empty()));
-    this.set("tokenId", Value.fromBigInt(BigInt.zero()));
   }
 
   save(): void {
@@ -105,10 +100,6 @@ export class ItemListed extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("seller", Value.fromBytes(Bytes.empty()));
-    this.set("nftAddress", Value.fromBytes(Bytes.empty()));
-    this.set("tokenId", Value.fromBigInt(BigInt.zero()));
   }
 
   save(): void {
@@ -181,30 +172,26 @@ export class ItemListed extends Entity {
   }
 }
 
-export class ItemCanceled extends Entity {
+export class ItemCancelled extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("seller", Value.fromBytes(Bytes.empty()));
-    this.set("nftAddress", Value.fromBytes(Bytes.empty()));
-    this.set("tokenId", Value.fromBigInt(BigInt.zero()));
   }
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save ItemCanceled entity without an ID");
+    assert(id != null, "Cannot save ItemCancelled entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type ItemCanceled must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type ItemCancelled must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("ItemCanceled", id.toString(), this);
+      store.set("ItemCancelled", id.toString(), this);
     }
   }
 
-  static load(id: string): ItemCanceled | null {
-    return changetype<ItemCanceled | null>(store.get("ItemCanceled", id));
+  static load(id: string): ItemCancelled | null {
+    return changetype<ItemCancelled | null>(store.get("ItemCancelled", id));
   }
 
   get id(): string {
@@ -248,10 +235,6 @@ export class ItemBought extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("buyer", Value.fromBytes(Bytes.empty()));
-    this.set("nftAddress", Value.fromBytes(Bytes.empty()));
-    this.set("tokenId", Value.fromBigInt(BigInt.zero()));
   }
 
   save(): void {
