@@ -93,7 +93,6 @@ Check out
 - [Reentrancy Sub Lesson](https://youtu.be/gyMwXuJrbJQ?t=86826)
 - Check out image rendering in Next JS
 - Study about [The Graph](https://spec.graphql.org/)
-- [Hosting on IPFS and making a PR to the code to host completely end to end will give you the 5th NFT](https://youtu.be/gyMwXuJrbJQ?t=103933)
 
 <div><b><u>Lesson 17 - Hardhat DAO</u> ✔✔</b></div>
 </details></summary>
