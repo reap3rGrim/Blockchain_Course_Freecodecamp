@@ -93,6 +93,7 @@ Check out
 - [Reentrancy Sub Lesson](https://youtu.be/gyMwXuJrbJQ?t=86826)
 - Check out image rendering in Next JS
 - Study about [The Graph](https://spec.graphql.org/)
+- Check out the [Apollo client](https://www.apollographql.com/docs/react/)
 
 <div><b><u>Lesson 17 - Hardhat DAO</u> ✔✔</b></div>
 </details></summary>
