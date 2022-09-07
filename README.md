@@ -94,6 +94,7 @@ Check out
 - Check out image rendering in Next JS
 - Study about [The Graph](https://spec.graphql.org/)
 - Check out the [Apollo client](https://www.apollographql.com/docs/react/)
+- Check out the [Web3uiKit](https://web3ui.github.io/web3uikit/?path=/story/1-web3-blockie--custom-seed)
 
 <div><b><u>Lesson 17 - Hardhat DAO</u> ✔✔</b></div>
 </details></summary>
